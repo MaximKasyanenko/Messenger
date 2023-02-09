@@ -4,6 +4,8 @@
 //
 //  Created by Maksim Kasyanenko on 07.02.2023.
 //
+import FirebaseStorageUI
+import Firebase
 import FirebaseStorage
 import Foundation
 
@@ -25,5 +27,12 @@ class FBStorageManager {
         }
     }
     
-    //func downloadURL(from path: String, complition: @escaping (Result<>) -> ())
+    func downloadProfilePicture(image: UIImageView, email: String = "") {
+        guard let senderemail = UserDefaults.standard.string(forKey: "email") else { return }
+        let refEmail = email == "" ? senderemail : email
+        let reference = storage.child("images/\(refEmail)_profile_picture.png")
+        image.sd_setImage(with: reference, placeholderImage: UIImage(systemName: "person"))
+    //    image.sd_setImage(with: reference, maxImageSize: 100000, placeholderImage: UIImage(systemName: "person"), options: .avoidDecodeImage)
+        }
+    
 }

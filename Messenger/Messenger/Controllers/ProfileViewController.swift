@@ -9,11 +9,16 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+   
+    @IBOutlet weak var image: UIImageView!
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setController()
        
+       FBStorageManager.shared.downloadProfilePicture(image: image)
+        tableView.dataSource = self
     }
     
 }
@@ -41,4 +46,18 @@ private extension ProfileViewController {
         let image = UIImage(systemName: "figure.walk.arrival")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(signOut))
     }
+}
+
+extension ProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = String(indexPath.row)
+        return cell
+    }
+    
+    
 }

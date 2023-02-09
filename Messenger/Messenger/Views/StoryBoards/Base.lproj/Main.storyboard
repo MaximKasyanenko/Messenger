@@ -19,7 +19,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="lzY-uY-b7a"/>
+                    <navigationItem key="navigationItem" title="Chats" largeTitleDisplayMode="never" id="lzY-uY-b7a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,33 +34,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1zJ-5b-XLh">
-                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="431"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="431" id="Q9s-Qg-pRM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="431" id="XNa-RG-s8f"/>
+                                </constraints>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KSt-Vo-x1R">
+                                <rect key="frame" x="76" y="510" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.94873550259999995" green="0.31320579609999999" blue="0.45253704360000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5ir-B9-Mgl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5ir-B9-Mgl" firstAttribute="bottom" secondItem="1zJ-5b-XLh" secondAttribute="bottom" id="67y-NH-slB"/>
-                            <constraint firstItem="1zJ-5b-XLh" firstAttribute="leading" secondItem="5ir-B9-Mgl" secondAttribute="leading" id="9zx-Fe-LUd"/>
-                            <constraint firstItem="5ir-B9-Mgl" firstAttribute="trailing" secondItem="1zJ-5b-XLh" secondAttribute="trailing" id="B1t-7o-uva"/>
-                            <constraint firstItem="1zJ-5b-XLh" firstAttribute="top" secondItem="5ir-B9-Mgl" secondAttribute="top" id="h29-Mf-zDD"/>
+                            <constraint firstItem="5ir-B9-Mgl" firstAttribute="bottom" secondItem="KSt-Vo-x1R" secondAttribute="bottom" constant="131" id="H2W-bW-iEN"/>
+                            <constraint firstItem="1zJ-5b-XLh" firstAttribute="leading" secondItem="5ir-B9-Mgl" secondAttribute="leading" id="Lho-wV-O31"/>
+                            <constraint firstItem="1zJ-5b-XLh" firstAttribute="top" secondItem="xnd-mF-BKF" secondAttribute="top" id="WPh-Vq-N4Z"/>
+                            <constraint firstItem="1zJ-5b-XLh" firstAttribute="trailing" secondItem="5ir-B9-Mgl" secondAttribute="trailing" id="fdO-pA-sqY"/>
+                            <constraint firstItem="KSt-Vo-x1R" firstAttribute="top" secondItem="1zJ-5b-XLh" secondAttribute="bottom" constant="79" id="j9b-9b-cQo"/>
+                            <constraint firstItem="5ir-B9-Mgl" firstAttribute="trailing" secondItem="KSt-Vo-x1R" secondAttribute="trailing" constant="77" id="nKL-5x-xmQ"/>
+                            <constraint firstItem="KSt-Vo-x1R" firstAttribute="leading" secondItem="5ir-B9-Mgl" secondAttribute="leading" constant="76" id="riR-Th-PlX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profail" id="CYF-wn-KNt"/>
                     <connections>
+                        <outlet property="image" destination="KSt-Vo-x1R" id="wYZ-et-fGd"/>
                         <outlet property="tableView" destination="1zJ-5b-XLh" id="paG-w4-r5s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D93-lV-RtW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="1499"/>
+            <point key="canvasLocation" x="580.91603053435108" y="1498.5915492957747"/>
         </scene>
         <!--Chats-->
         <scene sceneID="6Tf-q8-avN">
             <objects>
                 <navigationController title="Chats" automaticallyAdjustsScrollViewInsets="NO" id="T4p-cB-V1j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" image="message.badge" selectedImage="message.badge" catalog="system" id="jyd-og-G27"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="message.badge" catalog="system" selectedImage="message.badge" id="jyd-og-G27"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="MRY-M5-Tjb">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -81,6 +93,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8q9-Sb-9IC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zis-M8-SRN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -97,7 +110,7 @@
         <scene sceneID="6zd-7t-Mgu">
             <objects>
                 <navigationController id="0am-gn-SPo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profail" image="pencil.line" selectedImage="pencil.line" catalog="system" id="cYB-3m-myc"/>
+                    <tabBarItem key="tabBarItem" title="Profail" image="pencil.line" catalog="system" selectedImage="pencil.line" id="cYB-3m-myc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="99h-EV-J7o">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -112,9 +125,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message.badge" width="128" height="128"/>
         <image name="message.badge" catalog="system" width="128" height="116"/>
-        <image name="pencil.line" width="128" height="128"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -120,8 +120,8 @@ extension RegisterViewController {
         
         FBStorageManager.shared.uploadProfilePicture(data, fileName: user.proFileImageNane) { result in
             switch result {
-            case .success(let url):
-                print(url)
+            case .success(_):
+                break
             case .failure(let error):
                 print(error)
             }

@@ -26,7 +26,6 @@ class AuthManager {
         }
     }
     func logIn(email: String, password: String,  complition: @escaping (Result<AuthDataResult, Error>) -> ()) {
-        
         auth.signIn(withEmail: email, password: password) { result, error in
             if let result = result {
                 complition(.success(result))

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084429292994103E00B17FD9 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084429282994103E00B17FD9 /* Extension+Date.swift */; };
+		0844292B2994266600B17FD9 /* Extension+MessegeKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0844292A2994266600B17FD9 /* Extension+MessegeKind.swift */; };
+		084429302994EE3000B17FD9 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0844292F2994EE3000B17FD9 /* ConversationTableViewCell.swift */; };
+		084429332994F5A600B17FD9 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084429322994F5A600B17FD9 /* Conversation.swift */; };
 		086013352990FB1D00B9F1F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086013342990FB1D00B9F1F9 /* AppDelegate.swift */; };
 		086013372990FB1D00B9F1F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086013362990FB1D00B9F1F9 /* SceneDelegate.swift */; };
 		086013392990FB1D00B9F1F9 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086013382990FB1D00B9F1F9 /* ConversationsViewController.swift */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		084429282994103E00B17FD9 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
+		0844292A2994266600B17FD9 /* Extension+MessegeKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MessegeKind.swift"; sourceTree = "<group>"; };
+		0844292F2994EE3000B17FD9 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		084429322994F5A600B17FD9 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		086013312990FB1D00B9F1F9 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		086013342990FB1D00B9F1F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		086013362990FB1D00B9F1F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084429272994101A00B17FD9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				084429282994103E00B17FD9 /* Extension+Date.swift */,
+				0844292A2994266600B17FD9 /* Extension+MessegeKind.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0844292C2994EDFA00B17FD9 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				084429312994F52B00B17FD9 /* Model */,
+				0844292D2994EE0100B17FD9 /* Views */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		0844292D2994EE0100B17FD9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				086013382990FB1D00B9F1F9 /* ConversationsViewController.swift */,
+				0844292E2994EE1200B17FD9 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0844292E2994EE1200B17FD9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0844292F2994EE3000B17FD9 /* ConversationTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		084429312994F52B00B17FD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				084429322994F5A600B17FD9 /* Conversation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		086013282990FB1D00B9F1F9 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +147,7 @@
 		086013332990FB1D00B9F1F9 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				084429272994101A00B17FD9 /* Extension */,
 				086013482991002A00B9F1F9 /* App */,
 				0860134D2991009700B9F1F9 /* Resources */,
 				0860134C2991007A00B9F1F9 /* Controllers */,
@@ -138,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				086013692992635E00B9F1F9 /* Chat */,
-				086013382990FB1D00B9F1F9 /* ConversationsViewController.swift */,
+				0844292C2994EDFA00B17FD9 /* Conversations */,
 				08601359299104BF00B9F1F9 /* ProfileViewController.swift */,
 				086013572991048300B9F1F9 /* NewConversationViewController.swift */,
 				0860135B2991075F00B9F1F9 /* Login */,
@@ -344,9 +396,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0844292B2994266600B17FD9 /* Extension+MessegeKind.swift in Sources */,
 				0860136529918AE700B9F1F9 /* ChatAppUser.swift in Sources */,
 				086013502991037300B9F1F9 /* LoginViewController.swift in Sources */,
 				08601352299103A200B9F1F9 /* RegisterViewController.swift in Sources */,
+				084429292994103E00B17FD9 /* Extension+Date.swift in Sources */,
+				084429302994EE3000B17FD9 /* ConversationTableViewCell.swift in Sources */,
 				086013582991048300B9F1F9 /* NewConversationViewController.swift in Sources */,
 				086013392990FB1D00B9F1F9 /* ConversationsViewController.swift in Sources */,
 				086013562991042A00B9F1F9 /* VideoPlayerViewController.swift in Sources */,
@@ -359,6 +414,7 @@
 				0860136C2992639000B9F1F9 /* Message.swift in Sources */,
 				08601368299260F700B9F1F9 /* ChatViewController.swift in Sources */,
 				086013372990FB1D00B9F1F9 /* SceneDelegate.swift in Sources */,
+				084429332994F5A600B17FD9 /* Conversation.swift in Sources */,
 				08601354299103FA00B9F1F9 /* PhotoViewerViewController.swift in Sources */,
 				0860136129914DCF00B9F1F9 /* AuthManager.swift in Sources */,
 			);
