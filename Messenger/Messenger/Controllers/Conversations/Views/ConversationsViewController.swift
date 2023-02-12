@@ -51,7 +51,12 @@ class ConversationsViewController: UIViewController {
             }
         }
     }
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if conversation.isEmpty {
+            startListeningForCOnversations()
+        }
+    }
 }
 
 private extension ConversationsViewController {

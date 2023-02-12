@@ -14,10 +14,9 @@ struct Message: MessageType {
     var kind: MessageKit.MessageKind
     
     
-   static func dictionaryToMessages(value: [[String: Any]]) -> [Message] {
-        var messages: [Message] = []
-    
-        messages = value.compactMap { dictionary in
+    static func dictionaryToMessages(value: [[String: Any]]) -> [Message] {
+        
+        var messages: [Message] = value.compactMap { dictionary in
             guard let id = dictionary["id"] as? String,
                   let type = dictionary["type"] as? String,
                   let content = dictionary["content"] as? String,
@@ -31,29 +30,35 @@ struct Message: MessageType {
             dateFormatter.timeStyle = .long
             dateFormatter.locale = .current
             
-            guard let dates = dateFormatter.date(from: date) else { return nil }
-            let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
+             let dates = dateFormatter.date(from: date)
+                
+                let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
+                
+                let mesage = Message(sender: sender,
+                                     messageId: id,
+                                     sentDate: dates ?? Date(),
+                                     kind: .text(content))
+                return mesage
             
-            let mesage = Message(sender: sender,
-                                 messageId: id,
-                                 sentDate: dates,
-                                 kind: .text(content))
-            return mesage
+              
         }
-        return messages
-    }
+            
+            return messages
+        }
     
-//    func messegeToDictionnary(_ firstMessage: Message, email: String, messege: ) -> [String: Any] {
-//         let messeges: [String: Any] = [
-//            "id": firstMessage.messageId,
-//            "type": firstMessage.kind.description,
-//            "content": messege,
-//            "date": firstMessage.sentDate.dateFormatString(),
-//            "sender_email": email,
-//            "nickName": nickName,
-//            "isRead": false
-//        ]
-//    }
+    
+     func messegeToDictionnary(email: String, nickName: String ) -> [String: Any] {
+         let messeges: [String: Any] = [
+            "id": messageId,
+            "type": kind.description,
+            "content": kind.value,
+            "date": sentDate.dateFormatString(),
+            "sender_email": email,
+            "nickName": nickName,
+            "isRead": false
+        ]
+       return messeges
+    }
 }
 
 

@@ -71,6 +71,8 @@ private extension ChatViewController {
         }
     }
 }
+
+
 //MARK: - MessagesDataSource
 extension ChatViewController:  MessagesDataSource {
     func currentSender() -> MessageKit.SenderType {
@@ -84,17 +86,55 @@ extension ChatViewController:  MessagesDataSource {
     func numberOfSections(in messagesCollectionView: MessageKit.MessagesCollectionView) -> Int {
         messages.count
     }
+
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+            return NSAttributedString(
+              string: name,
+              attributes: [
+                .font: UIFont.preferredFont(forTextStyle: .caption1),
+                .foregroundColor: UIColor(white: 0.3, alpha: 1)
+              ])
+    }
 }
 //MARK: - MessagesLayoutDelegate
 extension ChatViewController: MessagesLayoutDelegate {
-    
+   
 }
 //MARK: - MessagesDisplayDelegate
 extension ChatViewController: MessagesDisplayDelegate {
     
+    
+
+    
+//    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+//        return isFromCurrentSender(message: message) ? UIColor.blue : UIColor.red
+//      }
+
+      // 2
+      func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView
+      ) -> Bool {
+        return false
+      }
+
+      // 3
+      func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+          let image = UIImageView()
+          FBStorageManager.shared.downloadProfilePicture(image: image, email: message.sender.senderId)
+          let avatar = Avatar(image: image.image, initials: "sadfad")
+          avatarView.set(avatar: avatar)
+      }
+
+    
+//      // 4
+//      func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+//        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+//        return .bubbleTail(corner, .curved)
+//      }
 }
 //MARK: - InputBarAccessoryViewDelegate
 extension ChatViewController: InputBarAccessoryViewDelegate {
+    
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard !text.replacingOccurrences(of: " ", with: "").isEmpty else { return }
         // send message
@@ -108,6 +148,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 if isSucces {
                     print("okay")
                     self?.isNewConversation = false
+                    inputBar.inputTextView.text = ""
                 } else {
                     print("failure")
                 }
@@ -118,7 +159,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             guard let id = id else { return }
             DatabaseManager.shared.sendMessage(id: id,otherUserEmail: otherUserEmail, message: message) { succes in
                 if succes {
-                    print("send in")
+                    inputBar.inputTextView.text = ""
                 } else {
                     print("send error")
                 }
